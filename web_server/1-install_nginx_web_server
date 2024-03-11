@@ -1,13 +1,7 @@
 #!/usr/bin/env bash
-#commands to install- nginx
-
-sudo apt-get update
-sudo apt-get install nginx
-sudo ufw "Nginx HTTP"
-
-echo "Holberton School" | sudo tee /var/www/html/index.html
-
-#test nginx configs
-sudo nginx -t
-
+# How to install nginx on a remote server and configure it
+sudo apt update 
+sudo apt install nginx -y
+sudo touch /var/www/html/index.html
+echo "Holberton School" | sudo tee /var/www/html/index.html 
 sudo service nginx restart
