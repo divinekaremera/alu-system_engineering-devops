@@ -1,7 +1,18 @@
 #!/usr/bin/env bash
-# How to install nginx on a remote server and configure it
-sudo apt update 
-sudo apt install nginx -y
-sudo touch /var/www/html/index.html
-echo "Holberton School" | sudo tee /var/www/html/index.html 
-sudo service nginx restart
+# Commands to install Nginx on Web-Sever-01
+
+# Updating Packages before making Installations
+sudo apt-get update
+sudo apt-get -y install nginx
+
+# Configuring the Uncomplicated Firewall (UFW) to allow incoming traffic for the Nginx HTTP service
+sudo ufw allow 'Nginx HTTP'
+
+# Creating an index.html page
+echo "Holberton School" | sudo tee /var/www/html/index.html
+
+# Testing Nginx configurations for Syntax errors
+sudo nginx -t
+
+# Restarting Nginx
+sudo service nginx start
